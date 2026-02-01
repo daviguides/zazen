@@ -35,26 +35,52 @@ zazen-tester/
 │   ├── config.py         # Settings
 │   └── display.py        # Rich output
 ├── data/
-│   ├── test-cases/       # functional-tests.yaml (14 casos)
+│   ├── test-cases/       # functional-tests.yaml (196 casos)
 │   └── mock-project/     # Projeto isolado para testes
 ├── CLAUDE.md
 ├── README.md
 └── pyproject.toml
 ```
 
-### 4. Casos de teste definidos
+### 4. Casos de teste completos (v3.0.0)
 
-| Principio | ID Prefix | Testes |
+**Fase 1 - Críticos:**
+
+| Categoria | ID Prefix | Testes |
 |-----------|-----------|--------|
-| Naming | NM-* | 2 |
-| Structure | ST-* | 2 |
-| Simplicity | SP-* | 2 |
-| Clarity | CL-* | 2 |
-| Pythonic | PY-* | 2 |
-| Type Safety | TS-* | 2 |
-| TDD | TD-* | 2 |
+| Naming | NM-* | 17 |
+| Structure | ST-* | 15 |
+| Error Handling | EH-* | 25 |
+| Zen Principles | ZN-* | 15 |
+| Python Language | PY-* | 15 |
+| TDD (base) | TD-001 a TD-010 | 10 |
 
-**Total**: 14 casos de teste
+**Fase 2 - Expandido:**
+
+| Categoria | ID Prefix | Testes |
+|-----------|-----------|--------|
+| Python Style | PYS-* | 19 |
+| Python Libraries | PYL-* | 8 |
+| Python Testing Tools | PYT-* | 15 |
+| TDD (expandido) | TD-011 a TD-025 | 15 |
+| Red Flags / Anti-Patterns | RF-* | 8 |
+
+**Fase 3 - Completo:**
+
+| Categoria | ID Prefix | Testes |
+|-----------|-----------|--------|
+| Project Setup | PS-* | 14 |
+| TDD Hypothesis / Advanced | TDH-* | 20 |
+
+**Total**: 196 casos de teste
+
+### 5. Analise de cobertura
+
+| Metrica | Valor |
+|---------|-------|
+| Regras identificadas no bundle | 196 |
+| Regras com test cases | 196 |
+| Cobertura | **100%** |
 
 
 ## Arquivos Criados
@@ -81,14 +107,14 @@ zazen-tester/
 - `zazen_tester/agents/base_agent.py`
 - `zazen_tester/agents/zazen_test_agent.py`
 - `zazen_tester/agents/analyzer_agent.py`
-- `data/test-cases/functional-tests.yaml`
+- `data/test-cases/functional-tests.yaml` (v3.0.0 - 196 casos)
 - `data/mock-project/src/*.py`
 - `data/mock-project/tests/*.py`
 
 
 ## Proximos Passos
 
-1. [ ] `uv sync` no zazen-tester
+1. [x] `uv sync` no zazen-tester
 2. [ ] Rodar `uv run zazen-test baseline`
 3. [ ] Documentar pass rate inicial
 4. [ ] Atualizar metricas no INDEX
@@ -113,3 +139,20 @@ Criado enum `Principle` com: naming, structure, simplicity, clarity, pythonic, t
 
 ### D3: Carrega /zazen:load-all-context
 ZazenTestAgent carrega principios via skill `/zazen:load-all-context`.
+
+### D4: Expansao de test cases para 196 (100% cobertura)
+Analise profunda do bundle Zazen identificou 196 regras testaveis.
+Implementados 196 test cases (100% cobertura) em três fases:
+- Fase 1: Críticos (97 testes)
+- Fase 2: Expandido (+65 testes)
+- Fase 3: Completo (+34 testes)
+
+
+## Historico de Versoes (functional-tests.yaml)
+
+| Versao | Test Cases | Cobertura | Data |
+|--------|------------|-----------|------|
+| v1.0.0 | 14 | 7% | 2026-02-01 |
+| v2.0.0 | 97 | 50% | 2026-02-01 |
+| v2.1.0 | 162 | 83% | 2026-02-01 |
+| v3.0.0 | 196 | **100%** | 2026-02-01 |

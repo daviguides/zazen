@@ -44,6 +44,19 @@ uv run zazen-test baseline
 | v0.1.0 (split) | 2026-02-01 | 258 | TBD | - |
 
 
+## Test Cases Coverage
+
+| Versao | Test Cases | Cobertura |
+|--------|------------|-----------|
+| v1.0.0 | 14 | 7% |
+| v2.0.0 | 97 | 50% |
+| v2.1.0 | 162 | 83% |
+| v3.0.0 | 196 | **100%** |
+
+**Regras identificadas**: 196
+**Regras com testes**: 196
+
+
 ## Origem
 
 Zazen foi criado a partir do split de Code-Zen.
