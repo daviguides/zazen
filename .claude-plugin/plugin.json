@@ -1,5 +1,11 @@
 {
-  "name": "zazen",
-  "version": "0.1.0",
-  "description": "Zazen (座禅) - Principles for writing code with focus and clarity"
+    "name": "zazen",
+    "version": "1.0.0",
+    "description": "Zazen (座禅) - Principles for writing code with focus and clarity",
+    "author": {
+        "name": "Davi Guides",
+        "url": "https://github.com/daviguides"
+    },
+    "repository": "https://github.com/daviguides/zazen",
+    "license": "MIT"
 }
