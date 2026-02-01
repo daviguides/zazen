@@ -18,8 +18,13 @@ Registro de sessoes do projeto de size reduction.
 **Proximo passo**: Fase 1 - Baseline + zazen-tester
 
 **Para continuar**:
-1. Ler ultima sessao
-2. Verificar plano: `../plans/size-reduction-plan.md`
+
+1. Ler ultima sessao:
+@./2026-02-01-phase05-site.md
+
+2. Verificar plano:
+@../plans/size-reduction-plan.md
+
 3. Criar zazen-tester
 4. Rodar baseline
 
