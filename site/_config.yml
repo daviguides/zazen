@@ -1,0 +1,41 @@
+title: Zazen
+description: Philosophy-driven coding standards for clarity and focus, designed as a Claude Code plugin.
+author: "Davi Guides"
+
+theme: minima
+
+baseurl: "/zazen"
+repository: daviguides/zazen
+
+# Minima social links
+github_username: daviguides
+linkedin_username: daviguides
+
+# Minima: show excerpts in the frontpage
+show_excerpts: true
+
+minima:
+  skin: solarized-light
+  date_format: "%Y-%m-%d"
+
+include:
+    - _pages
+
+header_pages:
+  - index.md
+  - _pages/why-zazen.md
+  - _pages/zen-of-python.md
+  - _pages/universal-principles.md
+  - _pages/python-standards.md
+
+exclude:
+    - .gitignore
+    - docker-compose.yml
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+
+markdown: kramdown
+kramdown:
+  input: GFM

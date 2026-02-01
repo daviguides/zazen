@@ -8,12 +8,13 @@ Registro de sessoes do projeto de size reduction.
 | Data | Sessao | Fase | Status | Link |
 |------|--------|------|--------|------|
 | 2026-02-01 | 001 | Fase 0: Split | Concluido | [→](./2026-02-01-phase0-split.md) |
+| 2026-02-01 | 002 | Fase 0.5: Site | Concluido | [→](./2026-02-01-phase05-site.md) |
 
 
 ## Quick Resume
 
-**Ultima sessao**: 001 (2026-02-01)
-**Fase atual**: 0 - Split (concluido)
+**Ultima sessao**: 002 (2026-02-01)
+**Fase atual**: 0.5 - Site (concluido)
 **Proximo passo**: Fase 1 - Baseline + zazen-tester
 
 **Para continuar**:
