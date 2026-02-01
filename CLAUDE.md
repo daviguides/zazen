@@ -49,4 +49,4 @@ zazen/
 
 ## Size Reduction Status
 
-See `docs/plans/` and `docs/sessions/` for reduction progress.
+@./docs/sessions/INDEX.md
