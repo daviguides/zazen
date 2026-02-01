@@ -109,11 +109,11 @@ print_header() {
   box_top
   box_empty
   # Logo: meditation pose
-  printf "${CYAN}│${NC}       ${BOLD}●${NC}                                             ${CYAN}│${NC}\n"
-  printf "${CYAN}│${NC}                 │  Coding with Focus & Clarity       ${CYAN}│${NC}\n"
-  printf "${CYAN}│${NC}  ${BOLD}Z  A  Z  E  N${NC}  │  座禅 - Zen Principles              ${CYAN}│${NC}\n"
-  printf "${CYAN}│${NC}                 │  (v1.0.0)                           ${CYAN}│${NC}\n"
-  printf "${CYAN}│${NC}       ${BOLD}┴${NC}                                             ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}        ${BOLD}●${NC}                                            ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}                 │  Coding with Focus & Clarity      ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}  ${BOLD}Z  A  Z  E  N${NC}  │  座禅 - Zen Principles            ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}                 │  (v1.0.0)                         ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}        ${BOLD}┴${NC}                                            ${CYAN}│${NC}\n"
   box_empty
   box_separator
 }
