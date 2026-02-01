@@ -12,11 +12,11 @@ After reading all files, respond with EXACTLY this card:
 ```
 ╭─────────────────────────────────────────────────────╮
 │                                                     │
-│       ●                                             │
+│        ●                                            │
 │                 │  Coding with Focus & Clarity      │
-│  Z  A  Z  E  N  │  座禅 - Zen Principles            │
-│                 │  (v1.0.0)                         │
-│       ┴                                             │
+│  Z  A  Z  E  N  │  座禅 - Zen Principles             │
+│                 │  (v1.1.0)                         │
+│        ┴                                            │
 │                                                     │
 ╰─────────────────────────────────────────────────────╯
 
