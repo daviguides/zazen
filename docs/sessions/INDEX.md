@@ -9,24 +9,32 @@ Registro de sessoes do projeto de size reduction.
 |------|--------|------|--------|------|
 | 2026-02-01 | 001 | Fase 0: Split | Concluido | [→](./2026-02-01-phase0-split.md) |
 | 2026-02-01 | 002 | Fase 0.5: Site | Concluido | [→](./2026-02-01-phase05-site.md) |
+| 2026-02-01 | 003 | Fase 1: Tester | Em progresso | [→](./2026-02-01-phase1-tester.md) |
 
 
 ## Quick Resume
 
-**Ultima sessao**: 002 (2026-02-01)
-**Fase atual**: 0.5 - Site (concluido)
-**Proximo passo**: Fase 1 - Baseline + zazen-tester
+**Ultima sessao**: 003 (2026-02-01)
+**Fase atual**: 1 - Tester (em progresso)
+**Proximo passo**: Rodar baseline
 
 **Para continuar**:
 
 1. Ler ultima sessao:
-@./2026-02-01-phase05-site.md
+@./2026-02-01-phase1-tester.md
 
-2. Verificar plano:
-@../plans/size-reduction-plan.md
+2. Instalar dependencias:
+```bash
+cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
+uv sync
+```
 
-3. Criar zazen-tester
-4. Rodar baseline
+3. Rodar baseline:
+```bash
+uv run zazen-test baseline
+```
+
+4. Documentar pass rate
 
 
 ## Metricas
