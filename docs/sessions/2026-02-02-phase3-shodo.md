@@ -255,33 +255,48 @@ Atualizado `skill-creating-testers.md` com:
 ## Quick Resume
 
 **Workflow**: size-reduction / plugin-extraction
-**Current Phase**: READY (infraestrutura completa)
-**Next Phase**: VALIDATING (rodar baselines)
+**Current Phase**: VALIDATING (baseline analisado, improvements em progresso)
+**Next Phase**: Re-rodar baseline com constraints
 **Required Context**: `@./CLAUDE.md` then `@./docs/sessions/2026-02-02-phase3-shodo.md`
 
 ## Current State
 
-**Last Action**: Adicionado --id flag e atualizado documentação dos testers
+**Last Action**: Adicionado testing constraints para desabilitar EnterPlanMode
 **Zazen Version**: v1.1.1 (tag criada)
 
 **Commits recentes (zazen)**:
+- `1526c0e` - docs: add v1.1.1 partials analysis with root cause diagnosis
 - `0622b25` - chore: update version to 1.1.1 in install.sh and load.md
-- `c152a1b` - chore: bump version to 1.1.1
-- `159d6eb` - docs: update size reduction section with mandatory tester reference
 
 **Commits recentes (gradient-tester)**:
+- `20a79c1` - feat: add testing constraints to disable EnterPlanMode and Task agents
 - `5a2f4d0` - docs: update kinhin and shodo CLAUDE.md with comprehensive guides
-- `856c374` - docs: update CLAUDE.md with comprehensive feature guide
-- `287abed` - feat: add --id flag to run and analyze single tests
 
 **Next Steps**:
-1. Rodar baselines em todos os testers
-2. Documentar pass rates iniciais
-3. Iniciar size reduction nos specs individuais
+1. Re-rodar baseline com novas constraints (sem EnterPlanMode)
+2. Verificar se os 6 partials de plan-mode agora passam
+3. Corrigir test cases muito rígidos (5 identificados)
+4. Iniciar size reduction nos specs
 
 **Blockers**: Nenhum
 
 ## Session Notes
+
+### 2026-02-02 (Session 8 - Partials Analysis & EnterPlanMode Fix)
+- Analisados todos os 24 partials e 1 fail do baseline v1.1.1
+- Criado `/docs/explorations/v1.1.1-partials-analysis.md` com diagnósticos
+- **Root causes identificados**:
+  - 6 casos: LLM preso em EnterPlanMode
+  - 5 casos: Test cases muito rígidos
+  - 15 casos: LLM behavior (não-conformidades legítimas)
+- **Fix aplicado**: Adicionado testing constraints em todos os testers
+  - Do NOT use EnterPlanMode
+  - Do NOT spawn Task agents
+  - Focus on direct implementation
+- **Commits (zazen)**:
+  - `1526c0e` - docs: add v1.1.1 partials analysis with root cause diagnosis
+- **Commits (gradient-tester)**:
+  - `20a79c1` - feat: add testing constraints to disable EnterPlanMode and Task agents
 
 ### 2026-02-02 (Session 7 - Tester Improvements)
 - Adicionado `--id` / `-i` flag para run e analyze (single test iteration)
