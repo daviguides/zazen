@@ -112,7 +112,7 @@ print_header() {
   printf "${CYAN}│${NC}        ${BOLD}●${NC}                                            ${CYAN}│${NC}\n"
   printf "${CYAN}│${NC}                 │  Coding with Focus & Clarity      ${CYAN}│${NC}\n"
   printf "${CYAN}│${NC}  ${BOLD}Z  A  Z  E  N${NC}  │  座禅 - Zen Principles            ${CYAN}│${NC}\n"
-  printf "${CYAN}│${NC}                 │  (v1.0.0)                         ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}                 │  (v1.1.1)                         ${CYAN}│${NC}\n"
   printf "${CYAN}│${NC}        ${BOLD}┴${NC}                                            ${CYAN}│${NC}\n"
   box_empty
   box_separator
@@ -211,9 +211,11 @@ print_next_steps() {
   box_separator
   box_empty
   box_heading
-  box_text "/zazen:load           → Zen principles"
-  box_text "/zazen:load-python    → Python + Zen"
-  box_text "/zazen:load-tdd       → TDD workflow"
+  box_text "/zazen:load           → Core zen principles"
+  box_text ""
+  box_text "Related plugins:"
+  box_text "  /kinhin:load        → TDD practices"
+  box_text "  /shodo:load         → Python standards"
   box_empty
   box_text "Docs: https://github.com/daviguides/zazen"
   box_empty
