@@ -11,17 +11,18 @@ Registro de sessoes do projeto de size reduction.
 | 2026-02-01 | 002 | Fase 0.5: Site | Concluido | [→](./2026-02-01-phase05-site.md) |
 | 2026-02-01 | 003 | Fase 1: Tester | Concluido | [→](./2026-02-01-phase1-tester.md) |
 | 2026-02-01 | 004 | Fase 2: Kinhin | Concluido | [→](./2026-02-01-phase2-kinhin.md) |
+| 2026-02-02 | 005 | Fase 3: Shodo | Concluido | [→](./2026-02-02-phase3-shodo.md) |
 
 
 ## Quick Resume
 
-**Ultima sessao**: 004 (2026-02-01)
-**Fase atual**: 2 - Kinhin Split (concluido)
-**Proximo passo**: Rodar baselines Zazen + Kinhin
+**Ultima sessao**: 005 (2026-02-02)
+**Fase atual**: 3 - Shodo Split (concluido)
+**Proximo passo**: Rodar baselines Zazen + Kinhin + Shodo
 
 **Para continuar**:
 
-1. Rodar baseline Zazen (151 tests):
+1. Rodar baseline Zazen (94 tests):
 ```bash
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
 uv run zazen-test baseline
@@ -33,7 +34,13 @@ cd /Users/daviguides/work/sources/gradients/testers/kinhin-tester
 uv run kinhin-test baseline
 ```
 
-3. Documentar pass rates
+3. Rodar baseline Shodo (57 tests):
+```bash
+cd /Users/daviguides/work/sources/gradients/testers/shodo-tester
+uv run shodo-test baseline
+```
+
+4. Documentar pass rates
 
 
 ## Metricas
@@ -45,14 +52,15 @@ uv run kinhin-test baseline
 
 ## Test Cases Coverage
 
-### Zazen (code quality)
+### Zazen (core zen principles)
 
 | Versao | Test Cases | Cobertura |
 |--------|------------|-----------|
 | v3.0.0 | 196 | 100% (pre-split) |
-| v3.1.0 | 151 | 100% (post-split) |
+| v3.1.0 | 151 | 100% (post-kinhin) |
+| v3.2.0 | 94 | 100% (post-shodo) |
 
-**Grupos**: NM, ST, EH, ZN, PY, PYS, PYL, PYT, RF, PS
+**Grupos**: NM, ST, EH, ZN, RF, PS
 
 
 ### Kinhin (TDD)
@@ -64,12 +72,22 @@ uv run kinhin-test baseline
 **Grupos**: TD, TDH
 
 
+### Shodo (Python)
+
+| Versao | Test Cases | Cobertura |
+|--------|------------|-----------|
+| v1.0.0 | 57 | 100% |
+
+**Grupos**: PY, PYS, PYL, PYT
+
+
 ## Projetos Split
 
 | Projeto | Foco | Test Cases | Tester |
 |---------|------|------------|--------|
-| **Zazen** | Code quality | 151 | zazen-tester |
-| **Kinhin** | TDD practices | 45 | kinhin-tester |
+| **Zazen** | Core zen principles (naming, structure, errors) | 94 | zazen-tester |
+| **Kinhin** | TDD practices (red-green-refactor) | 45 | kinhin-tester |
+| **Shodo** | Python standards (style, libs, testing) | 57 | shodo-tester |
 | **Total** | | 196 | |
 
 
@@ -77,3 +95,4 @@ uv run kinhin-test baseline
 
 Zazen foi criado a partir do split de Code-Zen.
 Kinhin foi extraido do Zazen para separar TDD.
+Shodo foi extraido do Zazen para separar Python.

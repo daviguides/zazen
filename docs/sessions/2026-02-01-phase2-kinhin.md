@@ -122,10 +122,22 @@ NM, ST, EH, ZN, PY, PYS, PYL, PYT, RF, PS
 
 ## Proximos Passos
 
-1. [ ] Rodar baseline Zazen (151 tests)
-2. [ ] Rodar baseline Kinhin (45 tests)
-3. [ ] Documentar pass rates
-4. [ ] Commit e push ambos projetos
+1. [ ] Extrair Python para **Shodō** (書道 - Caminho da Caligrafia)
+2. [ ] Extrair demais principios ate esvaziar Zazen
+3. [ ] Rodar baselines de todos os projetos
+
+
+## Objetivo Final
+
+**Esvaziar o Zazen** - extrair todos os principios para projetos especializados:
+
+| Projeto | Kanji | Significado | Foco |
+|---------|-------|-------------|------|
+| **Kinhin** | 経行 | Meditacao caminhando | TDD practices |
+| **Shodō** | 書道 | Caminho da caligrafia | Python (style, type hints, docstrings) |
+| **???** | ??? | ??? | Naming, Structure, Zen principles |
+
+Zazen ficara como hub/orquestrador que carrega os plugins especializados.
 
 
 ## Comandos de Validacao

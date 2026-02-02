@@ -14,7 +14,6 @@ zazen/
 ├── zazen/                    # Bundle (Gradient pattern)
 │   ├── spec/
 │   │   ├── universal/        # Language-agnostic principles
-│   │   ├── python/           # Python-specific standards
 │   │   └── principles/       # Zen principles
 │   ├── context/
 │   │   ├── guides/           # Implementation guides
@@ -33,14 +32,14 @@ zazen/
 |---------|---------|
 | `/zazen:load` | Load zen principles (base) |
 | `/zazen:load-all-context` | Load universal + zen principles |
-| `/zazen:load-python-context` | Load Python standards |
 
-**Note**: TDD principles moved to **Kinhin** plugin. Actions in **Kyudo** plugin.
+**Note**: TDD moved to **Kinhin**. Python moved to **Shodō**. Actions in **Kyudo**.
 
 
 ## Related Plugins
 
 - **Kinhin**: TDD principles (extracted from Zazen)
+- **Shodō**: Python standards (extracted from Zazen)
 - **Kyudo**: Actions - check, refactor, review
 - **Arche**: Behavioral principles for Claude Code
 - **Gradient**: Plugin architecture
@@ -60,13 +59,13 @@ cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
 uv run zazen-test run 0.1.0 -g NM      # Naming only
 uv run zazen-test run 0.1.0 -g NM,ST   # Multiple groups
 
-# Full baseline (151 tests)
+# Full baseline (94 tests)
 uv run zazen-test baseline
 ```
 
-**Groups**: NM, ST, EH, ZN, PY, PYS, PYL, PYT, RF, PS
+**Groups**: NM, ST, EH, ZN, RF, PS
 
-**Note**: TDD tests (TD, TDH) moved to kinhin-tester.
+**Note**: TDD tests moved to kinhin-tester. Python tests moved to shodo-tester.
 
 
 ## Size Reduction Status
