@@ -172,9 +172,32 @@ Implementado salvamento incremental de respostas para:
 
 ## Proximos Passos
 
-1. [ ] Rodar baseline em todos os testers
-2. [ ] Documentar pass rates iniciais
-3. [ ] Iniciar size reduction nos specs individuais
+1. [ ] **BUGS**: Corrigir bugs em `run` e `analyze` (ver seção Bugs Conhecidos)
+2. [ ] Rodar baseline em todos os testers
+3. [ ] Documentar pass rates iniciais
+4. [ ] Iniciar size reduction nos specs individuais
+
+
+## Bugs Conhecidos
+
+### BUG-001: Analyze não encontra responses
+
+**Sintoma**: `analyze` falha mesmo com respostas existentes em `responses/`
+
+**Possível causa**: Verificação no CLI ou aggregation no analyzer
+
+**Arquivos relacionados**:
+- `*/cli.py` - verificação de responses
+- `*/analyzer.py` - `load_responses()` e `_load_responses_incremental()`
+
+### BUG-002: Run pode ter problemas de concorrência
+
+**Sintoma**: A investigar
+
+**Possível causa**: Race conditions no salvamento incremental
+
+**Arquivos relacionados**:
+- `*/runner.py` - `_save_single_response()`, parallel execution
 
 
 ---
@@ -182,23 +205,31 @@ Implementado salvamento incremental de respostas para:
 ## Quick Resume
 
 **Workflow**: size-reduction / plugin-extraction
-**Current Phase**: IMPLEMENTING (incremental saving done)
-**Next Phase**: VALIDATING (rodar baselines)
+**Current Phase**: BLOCKED (bugs em run/analyze)
+**Next Phase**: DEBUG (corrigir bugs) → VALIDATING (rodar baselines)
 
 ## Current State
 
-**Last Action**: Implementado incremental response saving em todos os testers
-**Commit**: `c952453` pushed to gradient-tester repo
+**Last Action**: Tentativa de rodar analyze, encontrados bugs
+**Commits recentes**:
+- `b49ca8f` - fix: update analyzer agents to use correct skill names
+- `f8386d7` - feat: update analyzers to support incremental responses
+- `c952453` - feat: add incremental response saving and --force flag
 
 **Next Steps**:
-1. Rodar `uv run zazen-test baseline` (94 tests)
-2. Rodar `uv run kinhin-test baseline` (45 tests)
-3. Rodar `uv run shodo-test baseline` (57 tests)
-4. Documentar pass rates
+1. Debugar `analyze` - verificar load de responses incrementais
+2. Debugar `run` - verificar salvamento e concorrência
+3. Rodar baselines após correções
 
-**Blockers**: Nenhum
+**Blockers**: Bugs em run/analyze
 
 ## Session Notes
+
+### 2026-02-02 (Session 3 - Checkpoint)
+- Corrigido skill names (`/zazen:load` em vez de `/zazen:load-all-context`)
+- Atualizado analyzers para suportar formato incremental
+- **BUGS ENCONTRADOS**: run e analyze precisam de debug
+- Sessão pausada para continuar depois
 
 ### 2026-02-02 (Session 2)
 - Implementado incremental response saving

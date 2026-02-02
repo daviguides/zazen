@@ -17,38 +17,40 @@ Registro de sessoes do projeto de size reduction.
 ## Quick Resume
 
 **Ultima sessao**: 005 (2026-02-02)
-**Fase atual**: 3 - Shodo Split + Incremental Saving (concluido)
-**Proximo passo**: Rodar baselines Zazen + Kinhin + Shodo
+**Fase atual**: 3 - Shodo Split + Incremental Saving (BLOCKED)
+**Proximo passo**: Corrigir bugs em run/analyze
 
-**Novidade**: Incremental response saving implementado em todos os testers
-- Respostas salvas em `responses/` (1 YAML por test)
-- Recovery automatico de falhas (pula testes ja completos)
-- Flag `--force` para re-rodar todos os testes
+**Status**: BUGS ENCONTRADOS
+- `run` e `analyze` precisam de debug
+- Incremental saving implementado mas com problemas
 
 **Para continuar**:
 
-1. Rodar baseline Zazen (94 tests):
+1. Ler sessao atual:
+```bash
+@./2026-02-02-phase3-shodo.md
+```
+
+2. Debugar comandos (ver seção "Bugs Conhecidos" na sessão):
+   - BUG-001: Analyze não encontra responses
+   - BUG-002: Run pode ter problemas de concorrência
+
+3. Após correções, rodar baselines:
 ```bash
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
 uv run zazen-test baseline
-```
 
-2. Rodar baseline Kinhin (45 tests):
-```bash
 cd /Users/daviguides/work/sources/gradients/testers/kinhin-tester
 uv run kinhin-test baseline
-```
 
-3. Rodar baseline Shodo (57 tests):
-```bash
 cd /Users/daviguides/work/sources/gradients/testers/shodo-tester
 uv run shodo-test baseline
 ```
 
-4. Documentar pass rates
-
-**Dica**: Se falhar no meio, basta rodar novamente (pula os ja completos).
-Use `--force` para forcar re-execucao de todos.
+**Commits recentes (gradient-tester)**:
+- `b49ca8f` - fix: update analyzer agents to use correct skill names
+- `f8386d7` - feat: update analyzers to support incremental responses
+- `c952453` - feat: add incremental response saving and --force flag
 
 
 ## Metricas
