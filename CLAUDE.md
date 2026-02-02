@@ -47,25 +47,34 @@ zazen/
 
 ## Size Reduction Testing
 
-**IMPORTANT**: When doing size reduction on Zazen specs, use zazen-tester.
+**IMPORTANT**: Before any size reduction work, read the tester documentation:
 
-**Location**: `/Users/daviguides/work/sources/gradients/testers/zazen-tester/`
+```
+@./../testers/zazen-tester/CLAUDE.md
+```
 
-**Quick commands**:
+This is **mandatory reading** - contains all commands, workflows, and iteration patterns.
+
+**Quick start**:
 ```bash
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
 
-# Run specific group (faster iteration)
-uv run zazen-test run 0.1.0 -g NM      # Naming only
-uv run zazen-test run 0.1.0 -g NM,ST   # Multiple groups
+# Single test iteration (fastest)
+uv run zazen-test run 0.1.0 -i NM-007 -f
+uv run zazen-test analyze 0.1.0 -i NM-007 -f
+
+# Group iteration
+uv run zazen-test run 0.1.0 -g NM
 
 # Full baseline (94 tests)
 uv run zazen-test baseline
 ```
 
-**Groups**: NM, ST, EH, ZN, RF, PS
+**Groups**: NM (17), ST (15), EH (25), ZN (15), RF (8), PS (14)
 
-**Note**: TDD tests moved to kinhin-tester. Python tests moved to shodo-tester.
+**Related testers**:
+- kinhin-tester: TDD tests (45) - `@./../testers/kinhin-tester/CLAUDE.md`
+- shodo-tester: Python tests (57) - `@./../testers/shodo-tester/CLAUDE.md`
 
 
 ## Size Reduction Status
