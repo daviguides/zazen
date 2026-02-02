@@ -142,6 +142,34 @@ uv run shodo-test baseline
 ```
 
 
+### 6. Incremental Response Saving
+
+Implementado salvamento incremental de respostas para:
+- Evitar erro de buffer overflow (JSON > 1MB)
+- Permitir recuperacao de falhas mid-run
+- Adicionar flag `--force` para re-rodar todos os testes
+
+**Mudancas em todos os testers** (zazen, kinhin, shodo):
+
+| Arquivo | Mudanca |
+|---------|---------|
+| `runner.py` | Salva respostas em `responses/` (1 arquivo por test ID) |
+| `display.py` | Adicionado `print_warning` |
+| `cli.py` | Adicionado `--force` / `-f` flag |
+
+**Novos metodos no runner**:
+- `_get_responses_dir(version)` - Retorna diretorio de respostas
+- `_get_existing_responses(version)` - Lista test IDs ja completados
+- `_aggregate_responses(version)` - Agrega arquivos individuais
+- `_save_single_response()` - Salva resposta imediatamente
+
+**Comportamento**:
+- Normal: Pula testes que ja tem resposta
+- `--force`: Re-roda todos os testes
+
+**Commit**: `c952453` - feat: add incremental response saving and --force flag
+
+
 ## Proximos Passos
 
 1. [ ] Rodar baseline em todos os testers
@@ -154,12 +182,32 @@ uv run shodo-test baseline
 ## Quick Resume
 
 **Workflow**: size-reduction / plugin-extraction
-**Current Phase**: COMPLETED
-**Next Phase**: Baseline validation
+**Current Phase**: IMPLEMENTING (incremental saving done)
+**Next Phase**: VALIDATING (rodar baselines)
+
+## Current State
+
+**Last Action**: Implementado incremental response saving em todos os testers
+**Commit**: `c952453` pushed to gradient-tester repo
+
+**Next Steps**:
+1. Rodar `uv run zazen-test baseline` (94 tests)
+2. Rodar `uv run kinhin-test baseline` (45 tests)
+3. Rodar `uv run shodo-test baseline` (57 tests)
+4. Documentar pass rates
+
+**Blockers**: Nenhum
 
 ## Session Notes
 
-### 2026-02-02
+### 2026-02-02 (Session 2)
+- Implementado incremental response saving
+- Respostas salvas em `responses/` (1 YAML por test)
+- Recovery automatico de falhas (pula testes ja completos)
+- Flag `--force` para re-rodar todos
+- Aplicado em todos os testers: zazen, kinhin, shodo
+
+### 2026-02-02 (Session 1)
 - Extraído Python para Shodō (57 tests)
 - Zazen reduzido para 94 tests (core zen principles)
 - Três plugins especializados:

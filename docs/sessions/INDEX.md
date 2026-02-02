@@ -17,8 +17,13 @@ Registro de sessoes do projeto de size reduction.
 ## Quick Resume
 
 **Ultima sessao**: 005 (2026-02-02)
-**Fase atual**: 3 - Shodo Split (concluido)
+**Fase atual**: 3 - Shodo Split + Incremental Saving (concluido)
 **Proximo passo**: Rodar baselines Zazen + Kinhin + Shodo
+
+**Novidade**: Incremental response saving implementado em todos os testers
+- Respostas salvas em `responses/` (1 YAML por test)
+- Recovery automatico de falhas (pula testes ja completos)
+- Flag `--force` para re-rodar todos os testes
 
 **Para continuar**:
 
@@ -41,6 +46,9 @@ uv run shodo-test baseline
 ```
 
 4. Documentar pass rates
+
+**Dica**: Se falhar no meio, basta rodar novamente (pula os ja completos).
+Use `--force` para forcar re-execucao de todos.
 
 
 ## Metricas
