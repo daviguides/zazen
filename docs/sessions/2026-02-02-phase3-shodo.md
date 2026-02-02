@@ -257,15 +257,22 @@ Atualizado `skill-creating-testers.md` com:
 **Workflow**: size-reduction / plugin-extraction
 **Current Phase**: READY (infraestrutura completa)
 **Next Phase**: VALIDATING (rodar baselines)
+**Required Context**: `@./CLAUDE.md` then `@./docs/sessions/2026-02-02-phase3-shodo.md`
 
 ## Current State
 
-**Last Action**: Implementado incremental analysis saving e corrigido BUG-001
-**Commits recentes**:
-- `2383bc5` (gradients-docs) - docs: add incremental analysis saving to tester guide
-- `e90c64c` (gradient-tester) - feat: add incremental analysis saving with --force flag
-- `dd35178` (gradient-tester) - fix: handle extra text after JSON in analyzer response parsing
-- `ceadeab` (gradient-tester) - feat: use shared settings.json and disable setting_sources
+**Last Action**: Adicionado --id flag e atualizado documentação dos testers
+**Zazen Version**: v1.1.1 (tag criada)
+
+**Commits recentes (zazen)**:
+- `0622b25` - chore: update version to 1.1.1 in install.sh and load.md
+- `c152a1b` - chore: bump version to 1.1.1
+- `159d6eb` - docs: update size reduction section with mandatory tester reference
+
+**Commits recentes (gradient-tester)**:
+- `5a2f4d0` - docs: update kinhin and shodo CLAUDE.md with comprehensive guides
+- `856c374` - docs: update CLAUDE.md with comprehensive feature guide
+- `287abed` - feat: add --id flag to run and analyze single tests
 
 **Next Steps**:
 1. Rodar baselines em todos os testers
@@ -275,6 +282,21 @@ Atualizado `skill-creating-testers.md` com:
 **Blockers**: Nenhum
 
 ## Session Notes
+
+### 2026-02-02 (Session 7 - Tester Improvements)
+- Adicionado `--id` / `-i` flag para run e analyze (single test iteration)
+- Atualizado CLAUDE.md de todos os testers com documentação completa
+- Atualizado CLAUDE.md do zazen com referência obrigatória ao tester
+- Bump zazen para v1.1.1 (plugin.json, install.sh, load.md)
+- Criada tag v1.1.1
+- **Commits (zazen)**:
+  - `0622b25` - chore: update version to 1.1.1 in install.sh and load.md
+  - `c152a1b` - chore: bump version to 1.1.1
+  - `159d6eb` - docs: update size reduction section with mandatory tester reference
+- **Commits (gradient-tester)**:
+  - `5a2f4d0` - docs: update kinhin and shodo CLAUDE.md with comprehensive guides
+  - `856c374` - docs: update CLAUDE.md with comprehensive feature guide
+  - `287abed` - feat: add --id flag to run and analyze single tests
 
 ### 2026-02-02 (Session 6 - Bug Fixes & Incremental Analysis)
 - Corrigido BUG-001: JSON parsing em `_parse_result` (extra text após JSON)
