@@ -173,9 +173,11 @@ Implementado salvamento incremental de respostas para:
 ## Proximos Passos
 
 1. [x] Adicionar Arché plugin a todos os testers
-2. [ ] Rodar baseline em todos os testers
-3. [ ] Documentar pass rates iniciais
-4. [ ] Iniciar size reduction nos specs individuais
+2. [x] Corrigir BUG-001 (JSON parsing)
+3. [x] Implementar incremental analysis saving
+4. [ ] Rodar baseline em todos os testers
+5. [ ] Documentar pass rates iniciais
+6. [ ] Iniciar size reduction nos specs individuais
 
 
 ### 7. Arché Integration
@@ -200,6 +202,54 @@ Adicionado carregamento do Arché (behavioral principles) a todos os testers.
 - Atualizado `skill-creating-testers.md` com padrão Arché + SETTINGS_PATH
 
 
+### 9. Fix BUG-001: JSON Parsing
+
+Corrigido bug no `_parse_result` que falhava quando LLM retornava texto extra após JSON.
+
+**Problema**: `JSONDecodeError: Extra data` - LLM retornava explicações após o JSON válido.
+
+**Solução**: Extrair JSON por balanceamento de chaves `{}` em vez de assumir texto limpo.
+
+**Arquivos corrigidos** (todos os testers):
+- `zazen-tester/zazen_tester/agents/analyzer_agent.py`
+- `kinhin-tester/kinhin_tester/agents/analyzer_agent.py`
+- `shodo-tester/shodo_tester/agents/analyzer_agent.py`
+- `arche-tester/arche_tester/agents/analyzer_agent.py`
+
+**Commit**: `dd35178` - fix: handle extra text after JSON in analyzer response parsing
+
+
+### 10. Incremental Analysis Saving
+
+Implementado salvamento incremental de análises (similar ao responses).
+
+**Mudanças em todos os testers** (zazen, kinhin, shodo, arche):
+
+| Arquivo | Mudança |
+|---------|---------|
+| `analyzer.py` | Métodos `_get_analyses_dir`, `_get_existing_analyses`, `_save_single_analysis`, `_load_existing_analysis` |
+| `analyzer.py` | `analyze_version_async` e `analyze_version` com salvamento incremental |
+| `cli.py` | Flag `--force` / `-f` no comando `analyze` |
+
+**Comportamento**:
+- Normal: Pula análises existentes em `analyses/`
+- `--force`: Re-analisa todos os testes
+- Cada análise salva em `analyses/{test_id}.yaml`
+- Agregação final em `analysis.yaml`
+
+**Commit**: `e90c64c` - feat: add incremental analysis saving with --force flag
+
+
+### 11. Documentação Atualizada
+
+Atualizado `skill-creating-testers.md` com:
+- Estrutura `analyses/` directory
+- Flag `--force` no comando `analyze`
+- Design decision D4: Incremental Analysis Saving
+
+**Commit**: `2383bc5` - docs: add incremental analysis saving to tester guide
+
+
 ---
 
 ## Quick Resume
@@ -210,12 +260,12 @@ Adicionado carregamento do Arché (behavioral principles) a todos os testers.
 
 ## Current State
 
-**Last Action**: Adicionado Arché + SETTINGS_PATH a todos os testers
+**Last Action**: Implementado incremental analysis saving e corrigido BUG-001
 **Commits recentes**:
-- `0204a24` - feat: add Arché plugin loading to test and analyzer agents
-- `b49ca8f` - fix: update analyzer agents to use correct skill names
-- `f8386d7` - feat: update analyzers to support incremental responses
-- `c952453` - feat: add incremental response saving and --force flag
+- `2383bc5` (gradients-docs) - docs: add incremental analysis saving to tester guide
+- `e90c64c` (gradient-tester) - feat: add incremental analysis saving with --force flag
+- `dd35178` (gradient-tester) - fix: handle extra text after JSON in analyzer response parsing
+- `ceadeab` (gradient-tester) - feat: use shared settings.json and disable setting_sources
 
 **Next Steps**:
 1. Rodar baselines em todos os testers
@@ -225,6 +275,26 @@ Adicionado carregamento do Arché (behavioral principles) a todos os testers.
 **Blockers**: Nenhum
 
 ## Session Notes
+
+### 2026-02-02 (Session 6 - Bug Fixes & Incremental Analysis)
+- Corrigido BUG-001: JSON parsing em `_parse_result` (extra text após JSON)
+- Implementado incremental analysis saving (similar ao responses)
+- Análises salvas em `analyses/{test_id}.yaml`
+- Flag `--force` no comando `analyze`
+- Atualizado `skill-creating-testers.md` com nova funcionalidade
+- **Commits**:
+  - `dd35178` (gradient-tester) - fix: handle extra text after JSON in analyzer response parsing
+  - `e90c64c` (gradient-tester) - feat: add incremental analysis saving with --force flag
+  - `2383bc5` (gradients-docs) - docs: add incremental analysis saving to tester guide
+
+### 2026-02-02 (Session 5 - Settings Isolation)
+- Configurado `setting_sources=None` para desabilitar carregamento de settings do sistema
+- Usando `settings=str(SETTINGS_PATH)` para carregar settings customizados
+- Settings compartilhado em `/Users/daviguides/work/sources/gradients/testers/settings.json`
+- Atualizado `skill-creating-testers.md` com padrão settings isolation
+- **Commits**:
+  - `ceadeab` (gradient-tester) - feat: use shared settings.json and disable setting_sources
+  - `bb996ad` (gradients-docs) - docs: update tester template with shared settings
 
 ### 2026-02-02 (Session 4 - Arché Integration)
 - Adicionado Arché plugin a todos os testers (zazen, kinhin, shodo)
