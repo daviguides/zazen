@@ -172,32 +172,32 @@ Implementado salvamento incremental de respostas para:
 
 ## Proximos Passos
 
-1. [ ] **BUGS**: Corrigir bugs em `run` e `analyze` (ver seção Bugs Conhecidos)
+1. [x] Adicionar Arché plugin a todos os testers
 2. [ ] Rodar baseline em todos os testers
 3. [ ] Documentar pass rates iniciais
 4. [ ] Iniciar size reduction nos specs individuais
 
 
-## Bugs Conhecidos
+### 7. Arché Integration
 
-### BUG-001: Analyze não encontra responses
+Adicionado carregamento do Arché (behavioral principles) a todos os testers.
 
-**Sintoma**: `analyze` falha mesmo com respostas existentes em `responses/`
+**Mudanças em todos os testers** (zazen, kinhin, shodo):
 
-**Possível causa**: Verificação no CLI ou aggregation no analyzer
+| Arquivo | Mudança |
+|---------|---------|
+| `config.py` | +`ARCHE_PLUGIN_PATH`, +`SETTINGS_PATH` |
+| `base_agent.py` | plugins: [arche, plugin], settings=SETTINGS_PATH |
+| `*_test_agent.py` | `/arche:load` + `/{plugin}:load` |
+| `analyzer_agent.py` | `/arche:load` + `/{plugin}:load` |
 
-**Arquivos relacionados**:
-- `*/cli.py` - verificação de responses
-- `*/analyzer.py` - `load_responses()` e `_load_responses_incremental()`
+**Commit**: `0204a24` - feat: add Arché plugin loading to test and analyzer agents
 
-### BUG-002: Run pode ter problemas de concorrência
 
-**Sintoma**: A investigar
+### 8. Documentação
 
-**Possível causa**: Race conditions no salvamento incremental
-
-**Arquivos relacionados**:
-- `*/runner.py` - `_save_single_response()`, parallel execution
+- Criado repo privado: https://github.com/daviguides/gradients-docs
+- Atualizado `skill-creating-testers.md` com padrão Arché + SETTINGS_PATH
 
 
 ---
@@ -205,25 +205,39 @@ Implementado salvamento incremental de respostas para:
 ## Quick Resume
 
 **Workflow**: size-reduction / plugin-extraction
-**Current Phase**: BLOCKED (bugs em run/analyze)
-**Next Phase**: DEBUG (corrigir bugs) → VALIDATING (rodar baselines)
+**Current Phase**: READY (infraestrutura completa)
+**Next Phase**: VALIDATING (rodar baselines)
 
 ## Current State
 
-**Last Action**: Tentativa de rodar analyze, encontrados bugs
+**Last Action**: Adicionado Arché + SETTINGS_PATH a todos os testers
 **Commits recentes**:
+- `0204a24` - feat: add Arché plugin loading to test and analyzer agents
 - `b49ca8f` - fix: update analyzer agents to use correct skill names
 - `f8386d7` - feat: update analyzers to support incremental responses
 - `c952453` - feat: add incremental response saving and --force flag
 
 **Next Steps**:
-1. Debugar `analyze` - verificar load de responses incrementais
-2. Debugar `run` - verificar salvamento e concorrência
-3. Rodar baselines após correções
+1. Rodar baselines em todos os testers
+2. Documentar pass rates iniciais
+3. Iniciar size reduction nos specs individuais
 
-**Blockers**: Bugs em run/analyze
+**Blockers**: Nenhum
 
 ## Session Notes
+
+### 2026-02-02 (Session 4 - Arché Integration)
+- Adicionado Arché plugin a todos os testers (zazen, kinhin, shodo)
+- Testers agora carregam `/arche:load` antes do plugin específico
+- Adicionado `SETTINGS_PATH` compartilhado entre testers
+- Renomeado `ZAZEN_PLUGIN_PATH` para nomes específicos (KINHIN_PLUGIN_PATH, SHODO_PLUGIN_PATH)
+- Criado repo privado: https://github.com/daviguides/gradients-docs
+- Atualizado `skill-creating-testers.md` com padrão Arché + SETTINGS_PATH
+- **Arquivos modificados por tester**:
+  - `config.py` - +ARCHE_PLUGIN_PATH, +SETTINGS_PATH
+  - `base_agent.py` - plugins: [arche, plugin], settings=SETTINGS_PATH
+  - `*_test_agent.py` - /arche:load + /plugin:load
+  - `analyzer_agent.py` - /arche:load + /plugin:load
 
 ### 2026-02-02 (Session 3 - Checkpoint)
 - Corrigido skill names (`/zazen:load` em vez de `/zazen:load-all-context`)
