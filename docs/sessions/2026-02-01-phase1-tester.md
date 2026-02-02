@@ -190,6 +190,12 @@ Implementados 196 test cases (100% cobertura) em três fases:
 - Modificou TDD? `--group TD,TDH`
 - Modificou Python? `--group PY,PYS,PYL,PYT`
 
+### D6: Haiku como modelo default
+Haiku é ~3-4x mais rápido e mais barato. Lógica: se Haiku segue os princípios, modelos maiores certamente seguirão.
+
+### D7: Multiprocessing mode
+Implementado modo multiprocessing (`--multiprocess` / `-p`) como alternativa ao asyncio para comparar performance.
+
 
 ## Historico de Versoes (functional-tests.yaml)
 
@@ -199,3 +205,58 @@ Implementados 196 test cases (100% cobertura) em três fases:
 | v2.0.0 | 97 | 50% | 2026-02-01 |
 | v2.1.0 | 162 | 83% | 2026-02-01 |
 | v3.0.0 | 196 | **100%** | 2026-02-01 |
+
+
+---
+
+## Quick Resume
+
+**Workflow**: size-reduction / tester-development
+**Current Phase**: IMPLEMENTING (baseline em execução)
+**Next Phase**: VALIDATING (analisar resultados)
+**Required Context**: `/zazen:load`
+
+## Current State
+
+**Last Action**: Implementado modo multiprocessing para comparar performance com asyncio.
+**Baseline rodando**: `uv run zazen-test baseline -c 15` (asyncio mode)
+
+**Next Steps**:
+1. Aguardar baseline completar
+2. Comparar asyncio vs multiprocessing (`-p` flag)
+3. Documentar pass rate inicial
+4. Atualizar métricas no INDEX
+
+**Blockers**: Nenhum
+
+## Commit History (zazen-tester)
+
+| Data | Commit | Descrição |
+|------|--------|-----------|
+| 2026-02-01 | 3b1029e | feat: add multiprocessing mode |
+| 2026-02-01 | 22b72f9 | fix: use haiku as default |
+| 2026-02-01 | a49912a | feat: add --model option |
+| 2026-02-01 | aa8723b | fix: fair comparison with --group |
+| 2026-02-01 | 224c4ee | fix: load all 3 zazen contexts |
+
+## Session Notes
+
+### 2026-02-01 (Session 4 - Checkpoint)
+- Baseline rodando com Haiku, -c 15
+- Implementado multiprocessing como alternativa
+- Estimativa ~40min para 196 testes com asyncio
+- Próxima sessão: comparar asyncio vs multiprocessing
+
+**Comandos para retomar**:
+```bash
+cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
+
+# Ver se baseline terminou
+ls -la data/versions/0.1.0/
+
+# Se não terminou, rodar novamente
+uv run zazen-test baseline -c 15
+
+# Ou testar multiprocessing
+uv run zazen-test baseline -c 15 --multiprocess
+```
