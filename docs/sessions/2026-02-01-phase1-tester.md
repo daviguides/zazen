@@ -82,6 +82,43 @@ zazen-tester/
 | Regras com test cases | 196 |
 | Cobertura | **100%** |
 
+### 6. Feature --group para testes por categoria
+
+Implementado filtro `--group` / `-g` para rodar subconjuntos de testes durante size reduction.
+
+**Comandos atualizados**:
+- `zazen-test run <version> -g <PREFIX>`
+- `zazen-test baseline -g <PREFIX>`
+
+**Suporta múltiplos grupos** (comma-separated):
+```bash
+zazen-test run 0.1.0 -g NM,ST,EH
+```
+
+**Grupos disponíveis**:
+
+| Grupo | Testes | Area |
+|-------|--------|------|
+| NM | 17 | Naming |
+| ST | 15 | Structure |
+| EH | 25 | Error Handling |
+| ZN | 15 | Zen Principles |
+| PY | 15 | Python Language |
+| TD | 25 | TDD |
+| PYS | 19 | Python Style |
+| PYL | 8 | Python Libraries |
+| PYT | 15 | Python Testing |
+| RF | 8 | Red Flags |
+| PS | 14 | Project Setup |
+| TDH | 20 | TDD Advanced |
+
+**Arquivos modificados**:
+- `zazen_tester/cli.py` - opcao --group
+- `zazen_tester/runner.py` - filtro _filter_test_cases
+- `CLAUDE.md` - documentacao completa
+
+**Referencia adicionada** no CLAUDE.md do zazen principal.
+
 
 ## Arquivos Criados
 
@@ -146,6 +183,12 @@ Implementados 196 test cases (100% cobertura) em três fases:
 - Fase 1: Críticos (97 testes)
 - Fase 2: Expandido (+65 testes)
 - Fase 3: Completo (+34 testes)
+
+### D5: Filtro --group para iteracao rapida
+196 testes levam ~30min. Durante size reduction, rodar apenas grupos relevantes:
+- Modificou naming? `--group NM`
+- Modificou TDD? `--group TD,TDH`
+- Modificou Python? `--group PY,PYS,PYL,PYT`
 
 
 ## Historico de Versoes (functional-tests.yaml)
