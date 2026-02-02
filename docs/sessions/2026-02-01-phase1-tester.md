@@ -245,18 +245,83 @@ Implementado modo multiprocessing (`--multiprocess` / `-p`) como alternativa ao 
 - Baseline rodando com Haiku, -c 15
 - Implementado multiprocessing como alternativa
 - Estimativa ~40min para 196 testes com asyncio
-- Próxima sessão: comparar asyncio vs multiprocessing
+- Próxima sessão: extrair TDD para Kinhin
 
-**Comandos para retomar**:
+---
+
+## Próxima Sessão: Fase 2 - Kinhin Split
+
+### Objetivo
+
+Extrair tudo relacionado a TDD do Zazen para um novo projeto **Kinhin** (禅歩 - meditação caminhando).
+
+**Filosofia**: Kinhin é a prática da meditação caminhando no Zen Budismo, servindo como transição ativa entre períodos de zazen. Analogamente, TDD é desenvolvimento em passos - red, green, refactor.
+
+### Escopo da Extração
+
+**Do Zazen, mover para Kinhin:**
+
+| Tipo | Arquivos Zazen | Destino Kinhin |
+|------|----------------|----------------|
+| Spec | `zazen/spec/tdd/` | `kinhin/spec/tdd/` |
+| Context | `zazen/context/guides/tdd-*.md` | `kinhin/context/guides/` |
+| Prompts | `zazen/prompts/load-tdd-*.md` | `kinhin/prompts/` |
+| Commands | `commands/load-tdd-context.md` | `commands/load.md` |
+
+**Do zazen-tester, mover para kinhin-tester:**
+
+| Grupo | Test Cases | IDs |
+|-------|------------|-----|
+| TD | 25 | TD-001 a TD-025 |
+| TDH | 20 | TDH-001 a TDH-020 |
+| **Total** | **45** | |
+
+### Tarefas
+
+1. **Criar projeto Kinhin**
+   - [ ] Criar repo `kinhin/` em `/gradients/`
+   - [ ] Estrutura Gradient padrão (spec/, context/, prompts/, commands/)
+   - [ ] Copiar specs TDD do Zazen
+   - [ ] Criar skill `/kinhin:load`
+
+2. **Criar kinhin-tester**
+   - [ ] Criar em `/gradients/testers/kinhin-tester/`
+   - [ ] Extrair test cases TD-* e TDH-* do functional-tests.yaml
+   - [ ] Adaptar para carregar `/kinhin:load`
+   - [ ] Rodar baseline Kinhin
+
+3. **Limpar Zazen**
+   - [ ] Remover specs TDD
+   - [ ] Remover test cases TD-* e TDH-* do zazen-tester
+   - [ ] Atualizar `/zazen:load` (remover referência TDD)
+   - [ ] Rodar baseline Zazen (agora 151 testes)
+
+4. **Validar ambos**
+   - [ ] Baseline Kinhin (45 testes)
+   - [ ] Baseline Zazen (151 testes)
+   - [ ] Documentar pass rates
+
+### Resultado Esperado
+
+| Projeto | Foco | Test Cases |
+|---------|------|------------|
+| Zazen | Code quality (naming, structure, zen, python) | 151 |
+| Kinhin | TDD practices | 45 |
+| **Total** | | 196 |
+
+### Comandos para Próxima Sessão
+
 ```bash
+# 1. Verificar baseline Zazen atual
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
-
-# Ver se baseline terminou
 ls -la data/versions/0.1.0/
 
-# Se não terminou, rodar novamente
-uv run zazen-test baseline -c 15
+# 2. Criar Kinhin
+cd /Users/daviguides/work/sources/gradients
+mkdir -p kinhin/{spec,context,prompts,commands,skills}
 
-# Ou testar multiprocessing
-uv run zazen-test baseline -c 15 --multiprocess
+# 3. Criar kinhin-tester
+cd /Users/daviguides/work/sources/gradients/testers
+cp -r zazen-tester kinhin-tester
+# ... adaptar
 ```

@@ -10,13 +10,14 @@ Registro de sessoes do projeto de size reduction.
 | 2026-02-01 | 001 | Fase 0: Split | Concluido | [→](./2026-02-01-phase0-split.md) |
 | 2026-02-01 | 002 | Fase 0.5: Site | Concluido | [→](./2026-02-01-phase05-site.md) |
 | 2026-02-01 | 003 | Fase 1: Tester | Em progresso | [→](./2026-02-01-phase1-tester.md) |
+| TBD | 004 | Fase 2: Kinhin | Planejado | - |
 
 
 ## Quick Resume
 
 **Ultima sessao**: 003 (2026-02-01)
-**Fase atual**: 1 - Tester (em progresso)
-**Proximo passo**: Rodar baseline
+**Fase atual**: 1 - Tester (baseline rodando)
+**Proximo passo**: Extrair TDD para Kinhin (Fase 2)
 
 **Para continuar**:
 
@@ -55,6 +56,19 @@ uv run zazen-test baseline
 
 **Regras identificadas**: 196
 **Regras com testes**: 196
+
+
+## Planejamento: Kinhin Split
+
+Após baseline, extrair TDD para projeto separado:
+
+| Projeto | Foco | Test Cases |
+|---------|------|------------|
+| **Zazen** | Code quality (naming, structure, zen, python) | 151 |
+| **Kinhin** | TDD practices (red-green-refactor, hypothesis) | 45 |
+| **Total** | | 196 |
+
+**Kinhin** (禅歩): Meditação caminhando - passos do TDD.
 
 
 ## Origem
