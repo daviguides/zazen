@@ -1,4 +1,4 @@
-# Load Zen of Python Workflow
+# Load Zen Workflow
 
 ## ⚠️ STOP - MANDATORY ACTION REQUIRED
 
@@ -16,17 +16,11 @@ Read: ~/.claude/zazen/spec/principles/zen-principles-spec.md
 Read: ~/.claude/zazen/context/guides/zen-implementation-guide.md
 ```
 
-### Step 3: Read Patterns and Templates
-```
-Read: ~/.claude/zazen/context/examples/python-patterns.md
-Read: ~/.claude/zazen/context/examples/python-templates.md
-```
-
 ---
 
 ## ⛔ HALT CONDITIONS
 
-**If you responded without reading all 4 files above: YOU VIOLATED THIS PRINCIPLE.**
+**If you responded without reading all 2 files above: YOU VIOLATED THIS PRINCIPLE.**
 
 ---
 
@@ -36,7 +30,6 @@ Read: ~/.claude/zazen/context/examples/python-templates.md
 1. Review pre-code checklist
 2. Identify implementation context (function/class/module/error/refactor)
 3. Consult decision matrix in zen-implementation-guide
-4. Choose appropriate template from python-templates
 
 **During code generation:**
 1. Apply naming conventions
