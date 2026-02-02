@@ -15,7 +15,6 @@ zazen/
 │   ├── spec/
 │   │   ├── universal/        # Language-agnostic principles
 │   │   ├── python/           # Python-specific standards
-│   │   ├── tdd/              # Test-driven development
 │   │   └── principles/       # Zen principles
 │   ├── context/
 │   │   ├── guides/           # Implementation guides
@@ -35,14 +34,14 @@ zazen/
 | `/zazen:load` | Load zen principles (base) |
 | `/zazen:load-all-context` | Load universal + zen principles |
 | `/zazen:load-python-context` | Load Python standards |
-| `/zazen:load-tdd-context` | Load TDD principles |
 
-**Note**: Actions like check, refactor, review are in Kyudo plugin.
+**Note**: TDD principles moved to **Kinhin** plugin. Actions in **Kyudo** plugin.
 
 
 ## Related Plugins
 
-- **Kyudo**: Actions - check, refactor, review (separate plugin)
+- **Kinhin**: TDD principles (extracted from Zazen)
+- **Kyudo**: Actions - check, refactor, review
 - **Arche**: Behavioral principles for Claude Code
 - **Gradient**: Plugin architecture
 
@@ -53,8 +52,6 @@ zazen/
 
 **Location**: `/Users/daviguides/work/sources/gradients/testers/zazen-tester/`
 
-**Required reading**: `@/Users/daviguides/work/sources/gradients/testers/zazen-tester/CLAUDE.md`
-
 **Quick commands**:
 ```bash
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
@@ -63,11 +60,13 @@ cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
 uv run zazen-test run 0.1.0 -g NM      # Naming only
 uv run zazen-test run 0.1.0 -g NM,ST   # Multiple groups
 
-# Full baseline (196 tests, ~30min)
+# Full baseline (151 tests)
 uv run zazen-test baseline
 ```
 
-**Groups**: NM, ST, EH, ZN, PY, TD, PYS, PYL, PYT, RF, PS, TDH
+**Groups**: NM, ST, EH, ZN, PY, PYS, PYL, PYT, RF, PS
+
+**Note**: TDD tests (TD, TDH) moved to kinhin-tester.
 
 
 ## Size Reduction Status

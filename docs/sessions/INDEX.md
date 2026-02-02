@@ -9,33 +9,31 @@ Registro de sessoes do projeto de size reduction.
 |------|--------|------|--------|------|
 | 2026-02-01 | 001 | Fase 0: Split | Concluido | [→](./2026-02-01-phase0-split.md) |
 | 2026-02-01 | 002 | Fase 0.5: Site | Concluido | [→](./2026-02-01-phase05-site.md) |
-| 2026-02-01 | 003 | Fase 1: Tester | Em progresso | [→](./2026-02-01-phase1-tester.md) |
-| TBD | 004 | Fase 2: Kinhin | Planejado | - |
+| 2026-02-01 | 003 | Fase 1: Tester | Concluido | [→](./2026-02-01-phase1-tester.md) |
+| 2026-02-01 | 004 | Fase 2: Kinhin | Concluido | [→](./2026-02-01-phase2-kinhin.md) |
 
 
 ## Quick Resume
 
-**Ultima sessao**: 003 (2026-02-01)
-**Fase atual**: 1 - Tester (baseline rodando)
-**Proximo passo**: Extrair TDD para Kinhin (Fase 2)
+**Ultima sessao**: 004 (2026-02-01)
+**Fase atual**: 2 - Kinhin Split (concluido)
+**Proximo passo**: Rodar baselines Zazen + Kinhin
 
 **Para continuar**:
 
-1. Ler ultima sessao:
-@./2026-02-01-phase1-tester.md
-
-2. Instalar dependencias:
+1. Rodar baseline Zazen (151 tests):
 ```bash
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
-uv sync
-```
-
-3. Rodar baseline:
-```bash
 uv run zazen-test baseline
 ```
 
-4. Documentar pass rate
+2. Rodar baseline Kinhin (45 tests):
+```bash
+cd /Users/daviguides/work/sources/gradients/testers/kinhin-tester
+uv run kinhin-test baseline
+```
+
+3. Documentar pass rates
 
 
 ## Metricas
@@ -47,31 +45,35 @@ uv run zazen-test baseline
 
 ## Test Cases Coverage
 
+### Zazen (code quality)
+
 | Versao | Test Cases | Cobertura |
 |--------|------------|-----------|
-| v1.0.0 | 14 | 7% |
-| v2.0.0 | 97 | 50% |
-| v2.1.0 | 162 | 83% |
-| v3.0.0 | 196 | **100%** |
+| v3.0.0 | 196 | 100% (pre-split) |
+| v3.1.0 | 151 | 100% (post-split) |
 
-**Regras identificadas**: 196
-**Regras com testes**: 196
+**Grupos**: NM, ST, EH, ZN, PY, PYS, PYL, PYT, RF, PS
 
 
-## Planejamento: Kinhin Split
+### Kinhin (TDD)
 
-Após baseline, extrair TDD para projeto separado:
+| Versao | Test Cases | Cobertura |
+|--------|------------|-----------|
+| v1.0.0 | 45 | 100% |
 
-| Projeto | Foco | Test Cases |
-|---------|------|------------|
-| **Zazen** | Code quality (naming, structure, zen, python) | 151 |
-| **Kinhin** | TDD practices (red-green-refactor, hypothesis) | 45 |
-| **Total** | | 196 |
+**Grupos**: TD, TDH
 
-**Kinhin** (禅歩): Meditação caminhando - passos do TDD.
+
+## Projetos Split
+
+| Projeto | Foco | Test Cases | Tester |
+|---------|------|------------|--------|
+| **Zazen** | Code quality | 151 | zazen-tester |
+| **Kinhin** | TDD practices | 45 | kinhin-tester |
+| **Total** | | 196 | |
 
 
 ## Origem
 
 Zazen foi criado a partir do split de Code-Zen.
-Historico anterior: `/gradients/zazen/docs/sessions/`
+Kinhin foi extraido do Zazen para separar TDD.
