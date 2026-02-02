@@ -47,6 +47,29 @@ zazen/
 - **Gradient**: Plugin architecture
 
 
+## Size Reduction Testing
+
+**IMPORTANT**: When doing size reduction on Zazen specs, use zazen-tester.
+
+**Location**: `/Users/daviguides/work/sources/gradients/testers/zazen-tester/`
+
+**Required reading**: `@/Users/daviguides/work/sources/gradients/testers/zazen-tester/CLAUDE.md`
+
+**Quick commands**:
+```bash
+cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
+
+# Run specific group (faster iteration)
+uv run zazen-test run 0.1.0 -g NM      # Naming only
+uv run zazen-test run 0.1.0 -g NM,ST   # Multiple groups
+
+# Full baseline (196 tests, ~30min)
+uv run zazen-test baseline
+```
+
+**Groups**: NM, ST, EH, ZN, PY, TD, PYS, PYL, PYT, RF, PS, TDH
+
+
 ## Size Reduction Status
 
 @./docs/sessions/INDEX.md
