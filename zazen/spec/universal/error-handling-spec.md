@@ -87,14 +87,7 @@
 - Set maximum retry limits
 - Log retry attempts
 
-## Documentation Requirements
-
-### Document Error Conditions
-- List possible exceptions/errors in function documentation
-- Describe when each error occurs
-- Specify expected caller handling
-
-### Error Message Standards
+## Error Message Standards
 - Write clear, actionable error messages
 - Use consistent error message format
 - Include "what went wrong" and "what to do"
