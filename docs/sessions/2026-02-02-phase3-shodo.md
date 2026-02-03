@@ -255,13 +255,13 @@ Atualizado `skill-creating-testers.md` com:
 ## Quick Resume
 
 **Workflow**: size-reduction / plugin-extraction
-**Current Phase**: VALIDATING (baseline analisado, improvements em progresso)
-**Next Phase**: Re-rodar baseline com constraints
+**Current Phase**: VALIDATING (fix validado, analyzer issue identificado)
+**Next Phase**: Corrigir analyzer para ler transcripts
 **Required Context**: `@./CLAUDE.md` then `@./docs/sessions/2026-02-02-phase3-shodo.md`
 
 ## Current State
 
-**Last Action**: Adicionado testing constraints para desabilitar EnterPlanMode
+**Last Action**: Validado fix EnterPlanMode - ZN-015 passou, outros implementam mas analyzer não vê código
 **Zazen Version**: v1.1.1 (tag criada)
 
 **Commits recentes (zazen)**:
@@ -270,17 +270,32 @@ Atualizado `skill-creating-testers.md` com:
 
 **Commits recentes (gradient-tester)**:
 - `20a79c1` - feat: add testing constraints to disable EnterPlanMode and Task agents
-- `5a2f4d0` - docs: update kinhin and shodo CLAUDE.md with comprehensive guides
 
 **Next Steps**:
-1. Re-rodar baseline com novas constraints (sem EnterPlanMode)
-2. Verificar se os 6 partials de plan-mode agora passam
+1. Corrigir analyzer para analisar transcript (não só summary)
+2. Re-analisar EH-020, EH-023 (código correto, analyzer não viu)
 3. Corrigir test cases muito rígidos (5 identificados)
 4. Iniciar size reduction nos specs
 
-**Blockers**: Nenhum
+**Blockers**: Analyzer só lê summary, não transcript com código real
 
 ## Session Notes
+
+### 2026-02-03 (Session 9 - EnterPlanMode Fix Validation)
+- Re-rodados os 5 testes que tinham plan-mode problem: EH-007, EH-020, EH-023, NM-009, ZN-015
+- **Resultados após fix**:
+  | Test | Antes | Depois | Mudança |
+  |------|-------|--------|---------|
+  | EH-007 | PARTIAL (plan-mode) | PARTIAL (implementou) | ✅ Implementa |
+  | EH-020 | PARTIAL (plan-mode) | PARTIAL (implementou) | ✅ Implementa |
+  | EH-023 | PARTIAL (plan-mode) | PARTIAL (implementou) | ✅ Implementa |
+  | NM-009 | PARTIAL (plan-mode) | PARTIAL (implementou) | ✅ Implementa |
+  | ZN-015 | PARTIAL (plan-mode) | **PASS** | ✅ **PASSOU!** |
+- **Fix funcionou**: Todos implementam código agora, ZN-015 passou
+- **Novo problema identificado**: Analyzer só lê `response` (summary), não `transcript` (código)
+  - EH-020: Código TEM sanitização (`user_message` vs `message`), analyzer não viu
+  - EH-023: Código TEM `Raises:` sections completas, analyzer não viu
+- **Ação necessária**: Modificar analyzer para analisar transcript ou pedir código no summary
 
 ### 2026-02-02 (Session 8 - Partials Analysis & EnterPlanMode Fix)
 - Analisados todos os 24 partials e 1 fail do baseline v1.1.1
