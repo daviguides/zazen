@@ -12,45 +12,39 @@ Registro de sessoes do projeto de size reduction.
 | 2026-02-01 | 003 | Fase 1: Tester | Concluido | [→](./2026-02-01-phase1-tester.md) |
 | 2026-02-01 | 004 | Fase 2: Kinhin | Concluido | [→](./2026-02-01-phase2-kinhin.md) |
 | 2026-02-02 | 005 | Fase 3: Shodo | Concluido | [→](./2026-02-02-phase3-shodo.md) |
+| 2026-02-03 | 010 | Test Case Fixes | Em andamento | [→](./2026-02-03-session-010.md) |
 
 
 ## Quick Resume
 
-**Ultima sessao**: 005 (2026-02-02)
-**Fase atual**: 3 - Shodo Split + Incremental Saving (BLOCKED)
-**Proximo passo**: Corrigir bugs em run/analyze
+**Ultima sessao**: 010 (2026-02-03)
+**Fase atual**: Test Case Fixes
+**Proximo passo**: Investigar RF-004 e ST-010
 
-**Status**: BUGS ENCONTRADOS
-- `run` e `analyze` precisam de debug
-- Incremental saving implementado mas com problemas
+**Status**: EM ANDAMENTO
+- EH-020: Prompt corrigido (PASS)
+- EH-023: Removido (duplicacao desnecessaria)
+- EH-001, EH-003, ZN-003: Test cases corrigidos (PASS)
+- RF-004, ST-010: Fix aplicado mas ainda PARTIAL
 
 **Para continuar**:
 
 1. Ler sessao atual:
 ```bash
-@./2026-02-02-phase3-shodo.md
+@./2026-02-03-session-010.md
 ```
 
-2. Debugar comandos (ver seção "Bugs Conhecidos" na sessão):
-   - BUG-001: Analyze não encontra responses
-   - BUG-002: Run pode ter problemas de concorrência
-
-3. Após correções, rodar baselines:
+2. Investigar RF-004 e ST-010:
 ```bash
 cd /Users/daviguides/work/sources/gradients/testers/zazen-tester
-uv run zazen-test baseline
-
-cd /Users/daviguides/work/sources/gradients/testers/kinhin-tester
-uv run kinhin-test baseline
-
-cd /Users/daviguides/work/sources/gradients/testers/shodo-tester
-uv run shodo-test baseline
+cat data/versions/1.1.1/analyses/RF-004.yaml
+cat data/versions/1.1.1/analyses/ST-010.yaml
 ```
 
-**Commits recentes (gradient-tester)**:
-- `b49ca8f` - fix: update analyzer agents to use correct skill names
-- `f8386d7` - feat: update analyzers to support incremental responses
-- `c952453` - feat: add incremental response saving and --force flag
+**Commits recentes**:
+- `74cb69e` (zazen) - docs: add session 010 - test case fixes
+- `9777ec2` (zazen) - fix: remove Document Error Conditions from spec
+- `cbee1a6` (gradient-tester) - fix: relax 5 overly strict test cases
 
 
 ## Metricas
@@ -69,6 +63,7 @@ uv run shodo-test baseline
 | v3.0.0 | 196 | 100% (pre-split) |
 | v3.1.0 | 151 | 100% (post-kinhin) |
 | v3.2.0 | 94 | 100% (post-shodo) |
+| v3.3.0 | 93 | 100% (EH-023 removed) |
 
 **Grupos**: NM, ST, EH, ZN, RF, PS
 
@@ -95,10 +90,10 @@ uv run shodo-test baseline
 
 | Projeto | Foco | Test Cases | Tester |
 |---------|------|------------|--------|
-| **Zazen** | Core zen principles (naming, structure, errors) | 94 | zazen-tester |
+| **Zazen** | Core zen principles (naming, structure, errors) | 93 | zazen-tester |
 | **Kinhin** | TDD practices (red-green-refactor) | 45 | kinhin-tester |
 | **Shodo** | Python standards (style, libs, testing) | 57 | shodo-tester |
-| **Total** | | 196 | |
+| **Total** | | 195 | |
 
 
 ## Origem
