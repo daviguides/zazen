@@ -1,0 +1,5 @@
+project:
+  name: zazen
+  type: standalone
+  docs_root: ./docs
+  owner: daviguides
