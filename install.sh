@@ -112,7 +112,7 @@ print_header() {
   printf "${CYAN}│${NC}        ${BOLD}●${NC}                                            ${CYAN}│${NC}\n"
   printf "${CYAN}│${NC}                 │  Coding with Focus & Clarity      ${CYAN}│${NC}\n"
   printf "${CYAN}│${NC}  ${BOLD}Z  A  Z  E  N${NC}  │  座禅 - Zen Principles            ${CYAN}│${NC}\n"
-  printf "${CYAN}│${NC}                 │  (v1.2.1)                         ${CYAN}│${NC}\n"
+  printf "${CYAN}│${NC}                 │  (v1.3.0)                         ${CYAN}│${NC}\n"
   printf "${CYAN}│${NC}        ${BOLD}┴${NC}                                            ${CYAN}│${NC}\n"
   box_empty
   box_separator

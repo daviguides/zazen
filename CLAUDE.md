@@ -109,10 +109,10 @@ Compiled size (`compile_plugin("zazen", prompt=<entry>)`, ~chars/3.6):
 
 | Entry | Chars | ~Tokens |
 |---|---|---|
-| `load` (union) | SIZE_load | TOK_load |
-| `load-planning` | SIZE_load-planning | TOK_load-planning |
-| `load-implementing` | SIZE_load-implementing | TOK_load-implementing |
-| `load-validating` | SIZE_load-validating | TOK_load-validating |
+| `load` (union) | 53,269 | 14.8k |
+| `load-planning` | 27,257 | 7.6k |
+| `load-implementing` | 23,253 | 6.5k |
+| `load-validating` | 6,551 | 1.8k |
 
 When adding a spec file: put its `Read:` line in the interactive
 workflow files AND in every runner entry whose mode uses it.
