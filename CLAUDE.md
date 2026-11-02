@@ -81,6 +81,42 @@ uv run zazen-test baseline
 
 @./docs/sessions/INDEX.md
 
+## Runner entries (per mode)
+
+`/zazen:load` (interactive) keeps loading everything through
+`load-universal-workflow` + `load-zen-workflow`. The runner compiles one
+thin entry per mode instead, so each SDK session pays only what its
+mode uses. Zazen is language-agnostic: no per-language entries. Entries
+are files in `zazen/prompts/` with direct `Read:` lines only (no entry
+references another entry; the compiler caps depth at 2) and carry no
+card: the runner never shows it, and every system-prompt token is paid
+on every API call.
+
+| Entry | Files | Mode |
+|---|---|---|
+| `load-planning` | module-design-spec, module-design-examples, deepening-guide, design-it-twice-guide, zen-principles-spec, pre-code-checklist | PLANNING, PLAN_REVIEWING |
+| `load-implementing` | naming-conventions-spec, code-structure-spec, error-handling-spec, zen-principles-spec, zen-implementation-guide | IMPLEMENTING |
+| `load-validating` | review-checklist (pulls common-red-flags via `@`) | VALIDATING |
+
+Classification notes:
+- `zen-principles-spec` is in planning and implementing (small, and both
+  modes apply it); they never share a session.
+- `common-red-flags` was already loaded: `review-checklist` references it.
+- `project-setup-spec` stays out of every entry (and out of `load`): it
+  only matters when scaffolding a new project, not in a task's modes.
+
+Compiled size (`compile_plugin("zazen", prompt=<entry>)`, ~chars/3.6):
+
+| Entry | Chars | ~Tokens |
+|---|---|---|
+| `load` (union) | SIZE_load | TOK_load |
+| `load-planning` | SIZE_load-planning | TOK_load-planning |
+| `load-implementing` | SIZE_load-implementing | TOK_load-implementing |
+| `load-validating` | SIZE_load-validating | TOK_load-validating |
+
+When adding a spec file: put its `Read:` line in the interactive
+workflow files AND in every runner entry whose mode uses it.
+
 ---
 
 ## Releasing — mandatory workflow
