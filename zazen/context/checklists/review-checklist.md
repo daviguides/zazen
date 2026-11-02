@@ -184,7 +184,7 @@
 
 ## Red Flags - Reject If Found
 
-@~/.claude/zazen/context/checklists/common-red-flags.md
+See `common-red-flags.md` (every zazen entry that loads this checklist loads it too).
 
 ## Review Summary Template
 

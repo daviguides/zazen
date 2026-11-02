@@ -25,13 +25,14 @@ Read: ~/.claude/zazen/context/guides/design-it-twice-guide.md
 ```
 Read: ~/.claude/zazen/context/checklists/pre-code-checklist.md
 Read: ~/.claude/zazen/context/checklists/review-checklist.md
+Read: ~/.claude/zazen/context/checklists/common-red-flags.md
 ```
 
 ---
 
 ## ⛔ HALT CONDITIONS
 
-**If you responded without reading all 8 files above: YOU VIOLATED THIS PRINCIPLE.**
+**If you responded without reading all 9 files above: YOU VIOLATED THIS PRINCIPLE.**
 
 ---
 

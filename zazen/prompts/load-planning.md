@@ -8,3 +8,4 @@ Read: ~/.claude/zazen/context/guides/deepening-guide.md
 Read: ~/.claude/zazen/context/guides/design-it-twice-guide.md
 Read: ~/.claude/zazen/spec/principles/zen-principles-spec.md
 Read: ~/.claude/zazen/context/checklists/pre-code-checklist.md
+Read: ~/.claude/zazen/context/checklists/common-red-flags.md
