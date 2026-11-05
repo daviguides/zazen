@@ -2,7 +2,7 @@
 
 Critical anti-patterns that violate Zen of Python principles.
 
-## Red Flags - Reject If Found
+## Red Flags
 
 - 🚨 **"This is too clever"** → Violates Simple > Complex
 - 🚨 **"Only works if you know X"** → Violates Explicit > Implicit

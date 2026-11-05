@@ -124,6 +124,6 @@
 - [ ] Fix is targeted (not over-engineered)
 - [ ] Added regression test
 
-## Red Flags - Reject If Found
+## Red Flags
 
 See `common-red-flags.md` (every zazen entry that loads this checklist loads it too).
