@@ -94,14 +94,24 @@ on every API call.
 
 | Entry | Files | Mode |
 |---|---|---|
-| `load-planning` | module-design-spec, module-design-examples, deepening-guide, design-it-twice-guide, zen-principles-spec, pre-code-checklist | PLANNING, PLAN_REVIEWING |
+| `load-planning` | module-design-spec, module-design-examples, deepening-guide, design-it-twice-guide, zen-principles-spec, common-red-flags | PLANNING, PLAN_REVIEWING |
 | `load-implementing` | naming-conventions-spec, code-structure-spec, error-handling-spec, zen-principles-spec, zen-implementation-guide | IMPLEMENTING |
-| `load-validating` | review-checklist (pulls common-red-flags via `@`) | VALIDATING |
+| `load-validating` | review-checklist, common-red-flags | VALIDATING |
 
 Classification notes:
 - `zen-principles-spec` is in planning and implementing (small, and both
   modes apply it); they never share a session.
-- `common-red-flags` was already loaded: `review-checklist` references it.
+- `common-red-flags` is read directly by `load-planning` and
+  `load-validating`; `review-checklist` only points to it in prose.
+- `pre-code-checklist` is interactive-only (`load`): its groups repeat
+  zen-principles, and module size (< 500 lines) rides in
+  zen-implementation-guide.
+- Runner trim (release 1): checklists name Python-only items as `Python:`
+  and use the language formatter's width (shodo owns widths);
+  review-checklist has no severity scale, approval gate or summary
+  template (the runner's reviewer format and computed verdict own
+  that); zen-principles #10 splits code (reject ambiguous input) from
+  agent (no human in the loop: assume, document, continue).
 - `project-setup-spec` stays out of every entry (and out of `load`): it
   only matters when scaffolding a new project, not in a task's modes.
 
@@ -109,10 +119,10 @@ Compiled size (`compile_plugin("zazen", prompt=<entry>)`, ~chars/3.6):
 
 | Entry | Chars | ~Tokens |
 |---|---|---|
-| `load` (union) | 53,269 | 14.8k |
-| `load-planning` | 27,257 | 7.6k |
-| `load-implementing` | 23,253 | 6.5k |
-| `load-validating` | 6,551 | 1.8k |
+| `load` (union) | 48,757 | 13.5k |
+| `load-planning` | 21,694 | 6.0k |
+| `load-implementing` | 20,561 | 5.7k |
+| `load-validating` | 4,890 | 1.4k |
 
 When adding a spec file: put its `Read:` line in the interactive
 workflow files AND in every runner entry whose mode uses it.
