@@ -4,8 +4,8 @@
 
 ### ✅ Group 1: Foundations (CRITICAL)
 
-**Beautiful (PEP 8):**
-- [ ] Code follows PEP 8 (indentation, spacing, line length ≤80)
+**Beautiful (Conventions):**
+- [ ] Code follows the language's conventions (Python: PEP 8); lines within the language formatter's width
 - [ ] Names are consistent with project patterns
 - [ ] Structure is clean and organized
 
@@ -54,7 +54,7 @@
 - [ ] Documented necessary assumptions
 
 **One Obvious Way:**
-- [ ] Used Pythonic approach
+- [ ] Used the idiomatic approach (Python: Pythonic)
 - [ ] Followed established language conventions
 - [ ] Did not reinvent the wheel
 
@@ -63,8 +63,7 @@
 **Type Hints:**
 - [ ] All function parameters have type hints
 - [ ] All return types are annotated
-- [ ] Used Python 3.13+ syntax (`list[str]` not `List[str]`)
-- [ ] Union types use `|` not `Union`
+- [ ] Python: 3.13+ syntax (`list[str]` not `List[str]`), unions with `|` not `Union`
 
 **Function Structure:**
 - [ ] Functions have single responsibility
@@ -83,84 +82,27 @@
 - [ ] No bare `except:` clauses
 - [ ] Specific exception types used
 - [ ] Error messages include context
-- [ ] Exception chaining with `from e`
+- [ ] Exception chaining (Python: `from e`)
 - [ ] Errors never pass silently (unless explicitly intended)
 
 **Documentation:**
 - [ ] Module docstring exists
 - [ ] Class docstrings exist
 - [ ] Public function docstrings exist
-- [ ] Docstrings are ≤80 columns
+- [ ] Docstrings within the language formatter's width
 - [ ] Args, Returns, Raises documented where applicable
 
 **Imports:**
 - [ ] Organized in 3 groups (stdlib, third-party, local)
 - [ ] Blank lines between groups
 - [ ] No unused imports
-- [ ] Used pathlib over os.path
+- [ ] Python: pathlib over os.path
 
 **Style:**
-- [ ] Used f-strings (not % or .format())
+- [ ] Python: f-strings (not % or .format())
 - [ ] No magic numbers (named constants used)
 - [ ] Trailing commas in multi-line constructs
-- [ ] Lines ≤80 characters
-
-## Severity-Based Issues
-
-### 🔴 High Severity (Fix Immediately)
-- Silent error handling (bare except)
-- Missing type hints
-- Deep nesting (> 3 levels)
-- Missing input validation
-- Security issues
-- Functions > 100 lines
-
-### 🟡 Medium Severity (Fix Soon)
-- PEP 8 violations
-- Unclear naming
-- Magic numbers
-- Missing docstrings
-- Old Python syntax
-- Not using pathlib
-
-### 🟢 Low Severity (Nice to Have)
-- Missing trailing commas
-- Import organization
-- Minor style issues
-- Docstring formatting
-
-## Final Approval Checklist
-
-**ALL items must be TRUE before approving:**
-
-**Fundamentals:**
-- ✅ Code follows PEP 8 automatically
-- ✅ All intentions are explicit
-- ✅ Readability prioritized over cleverness
-
-**Structure:**
-- ✅ Solution is simple for the problem
-- ✅ Structure is flat (no unnecessary nesting)
-- ✅ Code is well-spaced and not dense
-
-**Pragmatism:**
-- ✅ Consistency maintained
-- ✅ Ambiguities avoided
-- ✅ One obvious way chosen
-
-**Errors:**
-- ✅ Errors never pass silently
-- ✅ When suppressed, explicitly intentional
-
-**Implementation:**
-- ✅ Code delivered (not perfect is enemy of good)
-- ✅ Quality maintained (not rushed)
-- ✅ Implementation is easy to explain
-
-**Organization:**
-- ✅ Namespaces used effectively
-
-**If ANY item is ❌ → Request changes before merging**
+- [ ] Lines within the language formatter's width
 
 ## Context-Specific Checks
 
@@ -185,39 +127,3 @@
 ## Red Flags - Reject If Found
 
 See `common-red-flags.md` (every zazen entry that loads this checklist loads it too).
-
-## Review Summary Template
-
-```
-## Code Review Summary
-
-**Files Reviewed**: X
-**Total Issues**: X
-
-### Issues by Severity
-- 🔴 High: X issues (fix immediately)
-- 🟡 Medium: X issues (fix soon)
-- 🟢 Low: X issues (nice to have)
-
-### Issues by Principle
-- Beautiful (PEP 8): X issues
-- Explicit: X issues
-- Simple: X issues
-- Flat: X issues
-- Readability: X issues
-- Error Handling: X issues
-
-### Top Priority Fixes
-1. [Most critical issue]
-2. [Second most critical]
-3. [Third most critical]
-
-### Positive Observations
-- ✅ [Good practice found]
-- ✅ [Another good practice]
-
-### Recommendation
-- [ ] Approve
-- [ ] Request changes
-- [ ] Needs discussion
-```

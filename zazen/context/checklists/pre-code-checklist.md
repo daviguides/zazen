@@ -5,7 +5,7 @@
 ### 🔍 Group 1: Foundations (CRITICAL)
 
 **Beautiful - Code Aesthetics:**
-- [ ] Will this code follow PEP 8 conventions?
+- [ ] Will this code follow the language's conventions (Python: PEP 8)?
 - [ ] Are names consistent with project patterns?
 - [ ] Will the structure be clean and organized?
 
@@ -54,7 +54,7 @@
 - [ ] Have I documented necessary assumptions?
 
 **One Obvious Way:**
-- [ ] Is there a more "Pythonic" way to do this?
+- [ ] Is there a more idiomatic way to do this (Python: "Pythonic")?
 - [ ] Am I following established language conventions?
 - [ ] Am I avoiding reinventing the wheel?
 
