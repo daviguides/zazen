@@ -32,7 +32,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 1. **Beautiful is better than ugly**
    - Code must be aesthetically pleasing and well-formatted
-   - Follow established conventions (PEP 8)
+   - Follow the language's established conventions
 
 2. **Explicit is better than implicit**
    - Code must be verbose and clear about intentions
@@ -72,8 +72,8 @@ Namespaces are one honking great idea -- let's do more of those!
    - Balance with principle #8
 
 10. **In the face of ambiguity, refuse the temptation to guess**
-    - When unclear, don't make assumptions
-    - Seek clarification
+    - Code: never coerce ambiguous input heuristically. Reject it or require it explicitly.
+    - Agent: never assume silently. With a human in the loop, ask. Otherwise state the assumption, pick the most reasonable option and document it.
 
 11. **There should be one-- and preferably only one --obvious way to do it**
     - Python should provide one clear, standard way for common tasks
@@ -132,12 +132,3 @@ When Zen principles conflict:
 3. **Simple > Complex** - For simple problems
 4. **Practicality > Purity** - With clear documented benefit
 5. **Consistency > Cleverness** - In special cases
-
-## Contemporary Validity (2025)
-
-All 19 principles remain highly relevant for modern Python (3.13+):
-
-- **Type hints** reinforce "Explicit > Implicit"
-- **Modern tools** (Black, Ruff, mypy) implement "Beautiful > Ugly"
-- **Best practices** (early returns, guard clauses) follow "Flat > Nested"
-- **Collaborative development** makes "Readability counts" more critical than ever
