@@ -10,67 +10,6 @@
 | **Error Handling** | Errors never silent<br>Unless silenced | Explicit > Implicit<br>Refuse to guess | "Failure obvious?" |
 | **Refactoring** | Readability counts<br>Simple > Complex | Beautiful > Ugly<br>Flat > Nested | "Improved clarity?" |
 
-## Implementation Workflow
-
-### Phase 1: Pre-Code (MANDATORY)
-
-**BEFORE generating any code:**
-
-1. **Check Pre-Implementation Checklist**
-   - Focus on Beautiful, Explicit, Readability
-   - Review primary principles for context
-
-2. **Identify Implementation Context**
-   - Function, class, module, error handling, or refactoring?
-   - Which principles are most important?
-
-3. **Choose Appropriate Templates**
-   - Use established patterns
-   - Don't reinvent the wheel
-
-### Phase 2: During Code
-
-**WHILE writing code:**
-
-1. **Apply Explicit Naming Conventions**
-   - Functions: verb-based, descriptive
-   - Classes: noun-based, single responsibility
-   - Variables: contextual, clear
-
-2. **Use Flat Structures**
-   - Guard clauses over nested ifs
-   - Early returns
-   - Maximum 3 levels of indentation
-
-3. **Make All Intentions Clear**
-   - No implicit behavior
-   - Explicit validation
-   - Clear error messages
-
-4. **Handle Errors Explicitly**
-   - Specific exception types
-   - Never bare `except:`
-   - Exception chaining
-
-### Phase 3: Post-Code (MANDATORY)
-
-**AFTER writing code:**
-
-1. **Run Complete Self-Verification**
-   - Check all Zen principles
-   - Use review checklist
-   - Look for red flags
-
-2. **Execute Auto-Approval Checklist**
-   - All fundamentals must pass
-   - Structure must be sound
-   - Errors must be handled
-
-3. **Fix Issues and Re-check**
-   - If any verification fails, fix immediately
-   - Re-run checks until all pass
-   - Only finalize when ALL checks pass
-
 ## Context-Specific Guidance
 
 ### Writing Functions
@@ -298,30 +237,6 @@ def load_default_config() -> Config:
 # - Default is well-documented
 # - Clear practical benefit
 ```
-
-## Integration with Development Workflow
-
-### New Feature Development
-1. Review specs and requirements
-2. Check pre-code checklist
-3. Choose templates based on context
-4. Implement with Zen principles
-5. Run post-code verification
-6. Fix issues until all checks pass
-
-### Bug Fixing
-1. Identify root cause
-2. Determine which principle was violated
-3. Apply appropriate Zen fix
-4. Add validation to prevent recurrence
-5. Add regression test
-
-### Code Review
-1. Use review checklist
-2. Check for anti-patterns
-3. Verify Zen compliance
-4. Provide specific, actionable feedback
-5. Ensure all checks pass before approval
 
 ## Success Metrics
 

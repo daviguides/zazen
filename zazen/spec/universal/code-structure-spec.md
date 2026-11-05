@@ -48,22 +48,10 @@ main_function()          # Orchestration - "what"
 
 ## Project Architecture
 
-### Main Entry Point
-- Always include **clear main entry point**:
-  - `main.py` (Python)
-  - `index.js` (Node.js)
-  - `main.go` (Go)
-  - `Program.cs` (C#)
-
 ### Multiple Cohesive Modules
 - **Organize code in multiple cohesive files/modules**
 - Avoid excessive accumulation in a single file
 - **Divide by responsibilities**, not by technical types
-
-### Extensible Architecture
-- Structure project to be **easy to extend in the future**
-- Allow adding new functionality without **significant breaking changes**
-- **Design for change** - anticipate that requirements will change
 
 ## Language Universality
 
