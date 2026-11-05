@@ -112,9 +112,9 @@ action()
 - Be flexible when there's clear practical benefit
 
 ### 12. "In the face of ambiguity, refuse the temptation to guess."
-**Meaning**: When code or requirements are unclear, don't make assumptions. Seek clarification.
-- Validate inputs and document assumptions
-- Fail fast when expectations are not met
+**Meaning**: Never coerce ambiguous input heuristically.
+- **Code**: Reject ambiguous input or require it explicitly
+- **Agent**: Never assume silently. With a human in the loop, ask. Otherwise state the assumption, pick the most reasonable option and document it
 
 ### 13. "There should be one-- and preferably only one --obvious way to do it."
 **Meaning**: Python should provide a clear and standard way to perform common tasks.
@@ -195,17 +195,6 @@ The hierarchy of groups suggests a **natural progression**:
 2. **Organize structure** (Group 2: Simple, Flat, Sparse)
 3. **Make balanced decisions** (Group 3: Consistency vs Practicality)
 4. **Implement with quality** (Groups 4-6: Errors, Timing, Organization)
-
-### **Contemporary Validity (2025)**
-
-All 18 practical aphorisms remain **highly relevant** for modern Python (3.13+):
-
-- **Even more emphasized**: Type hints reinforce "Explicit > Implicit"
-- **Modern tools**: Black, Ruff, mypy implement "Beautiful > Ugly"
-- **Current best practices**: Early returns, guard clauses follow "Flat > Nested"
-- **Collaborative development**: "Readability counts" is more critical than ever
-
----
 
 ## Conflict Resolution
 

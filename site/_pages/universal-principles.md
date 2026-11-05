@@ -55,23 +55,10 @@ main_function()          # Orchestration - "what"
 
 ## **Project Architecture**
 
-### **Main Entry Point**
-- Always include a **clear main entry point**:
-  - `main.py` (Python)
-  - `index.js` (Node.js)
-  - `main.go` (Go)
-  - `Program.cs` (C#)
-  - etc.
-
 ### **Multiple Cohesive Modules**
 - **Organize code into multiple files/modules** cohesively
 - Avoid excessive accumulation in a single file
 - **Divide by responsibilities**, not by technical types
-
-### **Extensible Architecture**
-- Structure the project to be **easy to extend in the future**
-- Allow adding new features without causing **significant breaks**
-- **Design for change** - anticipate that requirements will change
 
 ---
 
@@ -172,7 +159,6 @@ These principles apply to **any programming language** and should be followed re
 - **Clarity over cleverness** - Always prioritize understandable code
 - **Single responsibility** - Each component does one thing well
 - **Explicit over implicit** - Make intentions obvious
-- **Design for change** - Anticipate evolution
 - **Fail loudly** - Errors should be visible and actionable
 
 These universal principles form the foundation that language-specific guidelines build upon.
