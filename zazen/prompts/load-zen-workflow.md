@@ -14,13 +14,14 @@ Read: ~/.claude/zazen/spec/principles/zen-principles-spec.md
 ### Step 2: Read Implementation Guidance
 ```
 Read: ~/.claude/zazen/context/guides/zen-implementation-guide.md
+Read: ~/.claude/zazen/context/examples/zen-python-examples.md
 ```
 
 ---
 
 ## ⛔ HALT CONDITIONS
 
-**If you responded without reading all 2 files above: YOU VIOLATED THIS PRINCIPLE.**
+**If you responded without reading all 3 files above: YOU VIOLATED THIS PRINCIPLE.**
 
 ---
 

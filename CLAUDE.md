@@ -105,7 +105,17 @@ Classification notes:
   `load-validating`; `review-checklist` only points to it in prose.
 - `pre-code-checklist` is interactive-only (`load`): its groups repeat
   zen-principles, and module size (< 500 lines) rides in
-  zen-implementation-guide.
+  zen-implementation-guide (Success Metrics).
+- Runner trim (release 2, one owner per topic): concrete Python
+  (functions, classes, modules, error handling and refactoring
+  examples) moved from zen-implementation-guide to
+  `context/examples/zen-python-examples.md`, read only by the
+  interactive `load-zen-workflow`; shodo `load-python` owns Python
+  concretes in the runner. The guide keeps the decision matrix,
+  conflict resolution and success metrics. The universal specs
+  (naming, structure, error handling) stay in `load-implementing`:
+  zazen is language-agnostic and serves Rust/Java/TypeScript tasks
+  too.
 - Runner trim (release 1): checklists name Python-only items as `Python:`
   and use the language formatter's width (shodo owns widths);
   review-checklist has no severity scale, approval gate or summary
@@ -119,9 +129,9 @@ Compiled size (`compile_plugin("zazen", prompt=<entry>)`, ~chars/3.6):
 
 | Entry | Chars | ~Tokens |
 |---|---|---|
-| `load` (union) | 48,721 | 13.5k |
+| `load` (union) | 49,107 | 13.6k |
 | `load-planning` | 21,676 | 6.0k |
-| `load-implementing` | 20,561 | 5.7k |
+| `load-implementing` | 15,792 | 4.4k |
 | `load-validating` | 4,854 | 1.3k |
 
 When adding a spec file: put its `Read:` line in the interactive
