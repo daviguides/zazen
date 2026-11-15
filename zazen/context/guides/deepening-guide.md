@@ -35,7 +35,7 @@ Third-party services you do not control. The deepened module takes the external 
 3. **Design the deep interface**: apply module-design-spec principles (reduce methods, simplify params, hide complexity).
 4. **Build adapters for each seam**: one production, one test (minimum).
 5. **Write tests at the new interface**: the interface is the test surface.
-6. **Delete the shallow modules**: the deep module replaces them; their old tests go through the kinhin prune (lifecycle tags decide what survives).
+6. **Delete the shallow modules**: the deep module replaces them; their old tests go through the kinhin prune pass (the pruner judges each test independently).
 
 ---
 
