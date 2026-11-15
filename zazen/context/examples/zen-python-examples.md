@@ -117,7 +117,7 @@ def _apply_discount_rules(user: User, amount: Decimal) -> Decimal:
 **Apply:**
 - Validate inputs explicitly
 - Use specific exception types
-- No bare `except:`
+- No bare `except:` and no catch-all `except Exception`
 - Include context in messages
 - Exception chaining with `from e`
 - Log errors appropriately
@@ -141,10 +141,12 @@ def process_payment(data: PaymentData) -> PaymentResult:
         logger.error(f"Network error: {e}")
         raise PaymentError("Service unavailable") from e
 
-    except Exception as e:
-        logger.error(f"Unexpected error: {e}")
-        raise PaymentError("Processing failed") from e
+    except GatewayTimeoutError as e:
+        logger.error(f"Gateway timeout for {data.order_id}: {e}")
+        raise PaymentError("Processing timed out") from e
 ```
+
+Unexpected exceptions are not caught: they propagate with their traceback.
 
 ## Refactoring
 
